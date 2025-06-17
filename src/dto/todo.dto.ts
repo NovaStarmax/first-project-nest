@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsEnum } from 'class-validator';
+import { IsOptional, IsString, IsEnum, IsInt } from 'class-validator';
 
 enum StateTodo {
   Done = 'Done',
@@ -7,6 +7,10 @@ enum StateTodo {
 }
 
 export class TodoDto {
+  @IsOptional()
+  @IsInt()
+  id?: number;
+
   @IsString()
   task: string;
 
