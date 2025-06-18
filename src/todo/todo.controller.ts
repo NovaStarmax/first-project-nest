@@ -11,18 +11,23 @@ export class TodoController {
     return this.todoService.getTodos();
   }
 
+  @Get(':id')
+  getTodo(@Param('id') id: string): TodoDto | string {
+    return this.todoService.getTodo(+id);
+  }
+
   @Post()
   postTodo(@Body() body: TodoDto): TodoDto {
     return this.todoService.addTodo(body);
   }
 
   @Delete(':id')
-  deleteTodo(@Param() id: string): TodoDto | string {
+  deleteTodo(@Param('id') id: string): TodoDto | string {
     return this.todoService.deleteTodo(+id);
   }
 
-  @Patch()
-  patchTodo(): string {
-    return 'Patch from ToDo';
+  @Patch(':id')
+  patchTodo(@Param('id') id: string, @Body() body: TodoDto): TodoDto | string {
+    return this.todoService.modifyTodo(+id, body);
   }
 }

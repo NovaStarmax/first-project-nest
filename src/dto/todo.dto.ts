@@ -1,6 +1,6 @@
 import { IsOptional, IsString, IsEnum, IsInt } from 'class-validator';
 
-enum StateTodo {
+export enum StateTodo {
   Done = 'Done',
   InProgress = 'InProgress',
   Todo = 'Todo',
