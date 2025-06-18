@@ -38,15 +38,15 @@ export class TodoService {
 
   public modifyTodo(id: number, task: TodoDto): TodoDto | string {
     const index = this.todos.findIndex((todo) => todo.id === id);
-    if (index !== 1) {
+    if (index !== id) {
       const modified_task: TodoDto = {
-        id: index,
+        id: id,
         task: task.task,
         stateTodo: task.stateTodo,
       };
       this.todos.splice(index, 1, modified_task);
       return modified_task;
     }
-    return 'can not find your task with your id';
+    return 'can not find your task with your';
   }
 }
