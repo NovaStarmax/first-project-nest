@@ -38,7 +38,7 @@ export class TodoService {
 
   public modifyTodo(id: number, task: TodoDto): TodoDto | string {
     const index = this.todos.findIndex((todo) => todo.id === id);
-    if (index !== id) {
+    if (index !== -1) {
       const modified_task: TodoDto = {
         id: id,
         task: task.task,
